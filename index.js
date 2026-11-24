@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 const express = require("express");
 const users = require("./MOCK_DATA.json");
 
@@ -61,7 +59,14 @@ app.post("/api/users", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server started at PORT: ${PORT}`);
 });
+
+
+
+
+
+
 =======
+    // using nodejs creating server very messy and confusing
  const http = require("http");
 const fs = require("fs");
 const url = require( "url");
@@ -82,4 +87,5 @@ const myserver = http.createServer((req, res) => {
     });
 });
 myserver.listen(8000, () => console.log("server started"));
->>>>>>> 08d6dbb8090ca2b2c5b14716db677da7f8e80973
+
+
