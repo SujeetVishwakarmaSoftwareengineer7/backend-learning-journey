@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const express = require("express");
 const users = require("./MOCK_DATA.json");
@@ -60,3 +61,25 @@ app.post("/api/users", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server started at PORT: ${PORT}`);
 });
+=======
+ const http = require("http");
+const fs = require("fs");
+const url = require( "url");
+
+
+const myserver = http.createServer((req, res) => {
+    const log = `${Date.now()}: ${req.url}`;
+    fs.appendFile("log.txt", log, (err, data) => {
+        if (req.url == '/') { 
+            res.end("clicked / url");
+        } else if (req.url == '/about') {
+            res.end("you have clicked about  url");
+        } else if (req.url == '/home') {
+            res.end(" you have clicked home url");
+        } else {
+            res.end("404");
+        }
+    });
+});
+myserver.listen(8000, () => console.log("server started"));
+>>>>>>> 08d6dbb8090ca2b2c5b14716db677da7f8e80973
