@@ -56,46 +56,6 @@ app.route("/api/users/:id")
 
 // POST: Naya user create karna
 app.post("/api/users", (req, res) => {
-<<<<<<< HEAD
-    // TODO: Naya user create karna
-    return res.json({ status: "pending" });
-});
-
-// Server ko start karna
-app.listen(PORT, () => {
-    console.log(`Server started at PORT: ${PORT}`);
-});
-
-
-
-
-
-
-=======
-    // using nodejs creating server very messy and confusing
- const http = require("http");
-const fs = require("fs");
-const url = require( "url");
-
-
-const myserver = http.createServer((req, res) => {
-    const log = `${Date.now()}: ${req.url}`;
-    fs.appendFile("log.txt", log, (err, data) => {
-        if (req.url == '/') { 
-            res.end("clicked / url");
-        } else if (req.url == '/about') {
-            res.end("you have clicked about  url");
-        } else if (req.url == '/home') {
-            res.end(" you have clicked home url");
-        } else {
-            res.end("404");
-        }
-    });
-});
-myserver.listen(8000, () => console.log("server started"));
-
-
-=======
     const body = req.body;
     users.push({...body, id: users.length + 1});
     fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
@@ -105,4 +65,3 @@ myserver.listen(8000, () => console.log("server started"));
 // Server ko start karna
 app.listen(PORT, () => console.log(`server started at PORT: ${PORT}`)); 
  
->>>>>>> bebd284 (Day 01: Started Postman and practiced POST requests)
