@@ -1,11 +1,16 @@
 const express = require("express");
 const users = require("./MOCK_DATA.json");
+const fs = require('fs');
+const { json } = require("stream/consumers");
+const { error } = require("console");
 
 const app = express();
 const PORT = 8000;
 
-// Middleware: JSON format mein aane wale data ko read karne ke liye
-app.use(express.json());
+// // Middleware: JSON format mein aane wale data ko read karne ke liye
+// app.use(express.json());
+// midlle ware plugin
+app.use(express.urlencoded({ extended: false }));
 
 // Routes
 
@@ -51,6 +56,7 @@ app.route("/api/users/:id")
 
 // POST: Naya user create karna
 app.post("/api/users", (req, res) => {
+<<<<<<< HEAD
     // TODO: Naya user create karna
     return res.json({ status: "pending" });
 });
@@ -89,3 +95,14 @@ const myserver = http.createServer((req, res) => {
 myserver.listen(8000, () => console.log("server started"));
 
 
+=======
+    const body = req.body;
+    users.push({...body, id: users.length + 1});
+    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
+        return res.json({ status: "succes" ,id:users.length});
+    });
+});
+// Server ko start karna
+app.listen(PORT, () => console.log(`server started at PORT: ${PORT}`)); 
+ 
+>>>>>>> bebd284 (Day 01: Started Postman and practiced POST requests)
